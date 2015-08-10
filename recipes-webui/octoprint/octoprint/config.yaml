@@ -1,0 +1,38 @@
+serial:
+  autoconnect: true
+  baudrate: 115200
+  port: /dev/ttyUSB0
+  timeout: {}
+webcam:
+  ffmpeg: /usr/bin/avconv
+  ffmpegThreads: 4
+  flipH: true
+  rotate90: true
+  snapshot: http://127.0.0.1:8080/?action=snapshot
+  stream: /webcam/?action=stream
+  timelapse:
+    fps: 25
+    options:
+      interval: 10
+    postRoll: 2
+    type: timed
+system:
+  actions:
+  - action: shutdown
+    async: true
+    command: sudo shutdown -h now
+    confirm: You are about to shutdown the system.
+    ignore: true
+    name: Shutdown
+  - action: reboot
+    async: true
+    command: sudo shutdown -r now
+    confirm: You are about to reboot the system
+    ignore: true
+    name: Reboot
+  - action: restart
+    async: true
+    command: sudo systemctl restart octoprint
+    confirm: You are about to restart OctoPrint
+    ignore: true
+    name: Restart OctoPrint

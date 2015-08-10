@@ -1,0 +1,2 @@
+octoprint ALL=NOPASSWD: /bin/systemctl
+octoprint ALL=NOPASSWD: /sbin/shutdown

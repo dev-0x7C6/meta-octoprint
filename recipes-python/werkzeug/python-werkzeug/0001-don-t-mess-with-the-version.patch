@@ -1,0 +1,34 @@
+From 53cf3dfc0b8bb5edeb023a509c2dc8139abbfd2b Mon Sep 17 00:00:00 2001
+From: Koen Kooi <koen@dominion.thruhere.net>
+Date: Mon, 10 Aug 2015 18:02:59 +0200
+Subject: [PATCH] don't mess with the version
+
+Signed-off-by: Koen Kooi <koen@dominion.thruhere.net>
+---
+ scripts/make-release.py | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/scripts/make-release.py b/scripts/make-release.py
+index fa69897..7f80e63 100644
+--- a/scripts/make-release.py
++++ b/scripts/make-release.py
+@@ -124,7 +124,6 @@ def main():
+         fail('Could not parse changelog')
+ 
+     version, release_date, codename = rv
+-    dev_version = bump_version(version) + '-dev'
+ 
+     info('Releasing %s (codename %s, release date %s)',
+          version, codename, release_date.strftime('%d/%m/%Y'))
+@@ -143,8 +142,6 @@ def main():
+     make_git_commit('Bump version number to %s', version)
+     make_git_tag(version)
+     build_and_upload()
+-    set_init_version(dev_version)
+-    set_setup_version(dev_version)
+ 
+ 
+ if __name__ == '__main__':
+-- 
+2.0.1
+

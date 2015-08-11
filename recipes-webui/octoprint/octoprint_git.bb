@@ -96,4 +96,6 @@ RDEPENDS_${PN} = "python-tornado \
                   sudo \
 "
 
-RRECOMMENDS_${PN} = "libav"
+RRECOMMENDS_${PN} = "libav \
+                     mjpg-streamer \
+                    "

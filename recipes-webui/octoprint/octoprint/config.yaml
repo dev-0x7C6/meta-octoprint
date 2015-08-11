@@ -3,6 +3,11 @@ serial:
   baudrate: 115200
   port: /dev/ttyUSB0
   timeout: {}
+plugins:
+  cura:
+    cura_engine: /usr/bin/CuraEngine
+    debug_logging: false
+    default_profile: null
 webcam:
   ffmpeg: /usr/bin/avconv
   ffmpegThreads: 4

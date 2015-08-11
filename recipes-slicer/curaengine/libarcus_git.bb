@@ -1,4 +1,4 @@
-SUMMARY = "CuraEngine is a powerful, fast and robust engine for processing 3D models into 3D printing instructions."
+SUMMARY = "Communication library between internal components for Ultimaker software"
 
 LICENSE = "AGPLv3"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3d3c0b87ef66889fc868a1fcedef719c"
@@ -18,6 +18,12 @@ inherit cmake python3native
 
 do_configure_prepend() {
     sed -i -e s:2.8.12:2.8.11:g ${S}/CMakeLists.txt
+}
+
+do_install_append() {
+    # It looks outside of the sysroot, don't make it a fatal error if the libs isn't found.
+    # The proper fix is of course not to look there at all, but I haven't figured out how to do that yet.
+    sed -i -e s:FATAL_::g ${D}${libdir}/cmake/Arcus/Arcus-targets.cmake
 }
 
 FILES_${PN}-dev += "${libdir}/cmake"

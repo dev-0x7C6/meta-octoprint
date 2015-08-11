@@ -94,6 +94,7 @@ RDEPENDS_${PN} = "python-tornado \
                   python-flask-assets \
                   python-flask-babel \
                   sudo \
+                  curaengine \ 
 "
 
 RRECOMMENDS_${PN} = "libav \

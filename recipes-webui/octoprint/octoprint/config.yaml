@@ -13,9 +13,7 @@ plugins:
 webcam:
   ffmpeg: /usr/bin/avconv
   ffmpegThreads: 4
-  flipH: true
-  rotate90: true
-  snapshot: http://127.0.0.1:8080/?action=snapshot
+  snapshot: /webcam/?action=snapshot
   stream: /webcam/?action=stream
   timelapse:
     fps: 25

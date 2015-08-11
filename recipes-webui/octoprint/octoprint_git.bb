@@ -104,4 +104,5 @@ RDEPENDS_${PN} = "python-tornado \
 
 RRECOMMENDS_${PN} = "libav \
                      mjpg-streamer \
+                     octoprint-nginx \
                     "

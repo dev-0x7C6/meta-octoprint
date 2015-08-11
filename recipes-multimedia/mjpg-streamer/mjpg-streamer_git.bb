@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=751419260aa954499f7abaabaa882bbe"
 PV = "0.4+git${SRCPV}"
 SRCREV = "5f6adeefa0d5a78833cc809f2bfa76131f2b9ff8"
 SRC_URI = "git://github.com/jacksonliam/mjpg-streamer.git;protocol=https \
-           file://0001-ptp2-fix-ldflags.patch;striplevel=2 \
+           file://0001-Makefile-don-t-overwrite-C-LDFLAGS.patch;striplevel=2 \
           "
 
 DEPENDS = "libgphoto2 v4l-utils"
@@ -21,8 +21,11 @@ do_configure() {
     sed -i -e 's/# PLUGINS += input_ptp2.so/PLUGINS += input_ptp2.so/' ${S}/Makefile
 }
 
+EXTRA_OEMAKE = "USE_LIBV4L2=1"
+
+# oe_runmake seems to reset MAKEFLAGS, so just call plain make
 do_compile() {
-    make CC='${CC}' CFLAGS='${CFLAGS} -shared -fPIC' LFLAGS='${LDFLAGS} -ljpeg -lgphoto2 -lm -lgphoto2_port -lm -lexif -lv4l2 -lpthread -ldl ' USE_LIBV4L2=1
+    make -e ${EXTRA_OEMAKE}
 }
 
 do_install() {

@@ -1,2 +1,4 @@
 octoprint ALL=NOPASSWD: /bin/systemctl
 octoprint ALL=NOPASSWD: /sbin/shutdown
+octoprint ALL=NOPASSWD: /usr/bin/pip
+octoprint ALL=NOPASSWD: /usr/bin/python

@@ -33,8 +33,9 @@ do_install_append(){
 
     sed -i -e s:/etc:${sysconfdir}:g ${WORKDIR}/octoprint.service
     sed -i -e s:/etc:${sysconfdir}:g ${WORKDIR}/config.yaml
-    sed -i -e s:/sbin:${base_sbindir}: ${WORKDIR}/octoprint
-    sed -i -e s:/bin:${base_bindir}: ${WORKDIR}/octoprint
+    sed -i -e 's: /sbin: ${base_sbindir}:g' ${WORKDIR}/octoprint
+    sed -i -e 's: /bin: ${base_bindir}:g' ${WORKDIR}/octoprint
+    sed -i -e s:/usr/bin:${bindir}:g ${WORKDIR}/octoprint
 
     install -d ${D}${sysconfdir}/octoprint
     install -m 0644 ${WORKDIR}/config.yaml ${D}${sysconfdir}/octoprint/config.yaml

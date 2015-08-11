@@ -8,6 +8,8 @@ plugins:
     cura_engine: /usr/bin/CuraEngine
     debug_logging: false
     default_profile: null
+  pluginmanager:
+    pip: /usr/bin/pip-sudo
 webcam:
   ffmpeg: /usr/bin/avconv
   ffmpegThreads: 4

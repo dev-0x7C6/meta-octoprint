@@ -16,6 +16,7 @@ SRC_URI = "git://github.com/foosel/OctoPrint.git;protocol=https;branch=maintenan
            file://config.yaml \
            file://octoprint.service \
            file://octoprint \
+           file://pip-sudo \
 "
 S = "${WORKDIR}/git"
 
@@ -49,6 +50,9 @@ do_install_append(){
 
     install -d ${D}${sysconfdir}/sudoers.d
     install -m 0644 ${WORKDIR}/octoprint ${D}${sysconfdir}/sudoers.d/
+
+    install -d ${D}${bindir}
+    install -m 0755 ${WORKDIR}/pip-sudo ${D}${bindir}
 }
 
 USERADD_PACKAGES = "${PN}"

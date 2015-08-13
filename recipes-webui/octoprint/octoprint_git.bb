@@ -56,7 +56,7 @@ do_install_append(){
 }
 
 USERADD_PACKAGES = "${PN}"
-USERADD_PARAM_${PN} = "--system --home ${localstatedir}/lib/octoprint/ -M -g nogroup octoprint"
+USERADD_PARAM_${PN} = "--system --home ${localstatedir}/lib/octoprint/ -M -g nogroup -G dialout octoprint"
 
 NATIVE_SYSTEMD_SUPPORT = "1"
 SYSTEMD_PACKAGES = "${PN}"

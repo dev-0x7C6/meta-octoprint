@@ -24,3 +24,8 @@ do_configure_append() {
     sed -i -e s:/usr/lib/libArcus.so.15.05.90:-lArcus:g ${B}/CMakeFiles/CuraEngine.dir/link.txt
     sed -i -e s:/usr/lib/libArcus.so.15.05.90::g ${B}/CMakeFiles/CuraEngine.dir/build.make
 }
+
+do_install_append() {
+   # CuraEngine crashes without the json present in $PWD :(
+   install -m 0644 ${S}/*.json ${D}${bindir}
+}

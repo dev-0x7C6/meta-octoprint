@@ -7,9 +7,9 @@ LICENSE = "AGPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=73f1eb20517c55bf9493b7dd6e480788"
 
 # Latest master
-SRCREV = "9a6099ffc2982455d631c9d68a3273d9eb55885c"
+SRCREV = "273bb45741661d79ed26c8644967ee1a038ae65e"
 
-PV = "1.2.4"
+PV = "1.2.4+git${SRCPV}"
 
 
 SRC_URI = "git://github.com/foosel/OctoPrint.git;protocol=https;branch=maintenance \ 

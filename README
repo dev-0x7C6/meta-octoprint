@@ -16,12 +16,12 @@ The meta-maker layer depends on:
 
     URI: git://git.openembedded.org/openembedded-core
     layers: meta
-    branch: dizzy
+    branch: fido
     revision: HEAD
 
     URI: git://git.openembedded.org/meta-openembedded
     layers: meta-oe, meta-python
-    branch: dizzy
+    branch: fido
     revision: HEAD
 
 Please follow the recommended setup procedures of your OE distribution.

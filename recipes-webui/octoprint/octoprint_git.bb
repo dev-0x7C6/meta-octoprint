@@ -74,7 +74,7 @@ RDEPENDS_${PN} = "python-tornado \
                   python-sockjs-tornado \
                   python-tornado \
                   python-json \
-                  python-backports-ssl-match-hostname \
+                  python-backports-ssl \
                   python-flask \
                   python-flask-login \
                   python-flask-principal \

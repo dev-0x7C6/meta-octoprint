@@ -20,6 +20,6 @@ export HOST_SYS
 export STAGING_INCDIR
 export STAGING_LIBDIR
 
-RDEPENS_${PN} = "python-speaklater python-babel"
+RDEPENDS_${PN} = "python-speaklater python-babel"
 
 BBCLASSEXTEND = "native"

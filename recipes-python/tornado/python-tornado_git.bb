@@ -13,5 +13,5 @@ inherit setuptools
 
 DEPENDS = "python-certifi"
 
-RDPEPENDS_${PN} = "python-certifi"
+RDEPENDS_${PN} = "python-certifi"
 

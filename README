@@ -20,7 +20,7 @@ The meta-maker layer depends on:
     revision: HEAD
 
     URI: git://git.openembedded.org/meta-openembedded
-    layers: meta-oe
+    layers: meta-oe, meta-python, meta-perl
     branch: master
     revision: HEAD
 
@@ -49,3 +49,4 @@ Maintenance
 Maintainers:
     Denys "denix" Dmytriyenko <denis@denix.org>
     Tim "moto-timo" Orling <TicoTimo@gmail.com>
+    Koen Kooi <koen@dominion.thruhere.net>

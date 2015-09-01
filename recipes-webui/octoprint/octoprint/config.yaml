@@ -14,7 +14,7 @@ webcam:
   ffmpeg: /usr/bin/avconv
   ffmpegThreads: 4
   snapshot: /webcam/?action=snapshot
-  stream: /webcam/?action=stream
+  stream: http://localhost/webcam/?action=stream
   timelapse:
     fps: 25
     options:

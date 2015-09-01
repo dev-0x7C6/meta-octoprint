@@ -6,13 +6,14 @@ SECTION = "devel/python"
 LICENSE = "AGPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=73f1eb20517c55bf9493b7dd6e480788"
 
-# Latest master
-SRCREV = "273bb45741661d79ed26c8644967ee1a038ae65e"
+# 1.2.5 tag
+SRCREV = "96fc70bdb2dd74ba04c3071f70da385b0408904a"
 
-PV = "1.2.4+git${SRCPV}"
+PV = "1.2.5"
 
 
 SRC_URI = "git://github.com/foosel/OctoPrint.git;protocol=https;branch=maintenance \ 
+           file://0001-versioneer-lookup-add-support-for-detached-checkouts.patch \
            file://config.yaml \
            file://octoprint.service \
            file://octoprint \
@@ -65,6 +66,10 @@ SYSTEMD_SERVICE_${PN} = "octoprint.service"
 FILES_${PN} += "${sysconfdir} ${localstatedir}"
 CONFFILES_${PN} += "${sysconfdir}/octoprint/config.yaml"
 
+pkg_postinst_${PN}_append () {
+        chown -R octoprint $D${sysconfdir}/octoprint
+}
+
 RDEPENDS_${PN} = "python-tornado \
                   python-pyyaml \
                   python-numpy \
@@ -98,6 +103,7 @@ RDEPENDS_${PN} = "python-tornado \
                   python-netifaces \
                   python-flask-assets \
                   python-flask-babel \
+                  python-psutil \
                   sudo \
                   curaengine \ 
 "

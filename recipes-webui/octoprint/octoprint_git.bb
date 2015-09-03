@@ -6,14 +6,13 @@ SECTION = "devel/python"
 LICENSE = "AGPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=73f1eb20517c55bf9493b7dd6e480788"
 
-# 1.2.5 tag
-SRCREV = "96fc70bdb2dd74ba04c3071f70da385b0408904a"
+# 1.2.6 tag
+SRCREV = "536bb31965db17b969e7c1c53e241ddac4ae1814"
 
-PV = "1.2.5"
+PV = "1.2.6"
 
 
 SRC_URI = "git://github.com/foosel/OctoPrint.git;protocol=https;branch=maintenance \ 
-           file://0001-versioneer-lookup-add-support-for-detached-checkouts.patch \
            file://config.yaml \
            file://octoprint.service \
            file://octoprint \

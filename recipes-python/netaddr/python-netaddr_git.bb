@@ -7,10 +7,10 @@ LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b277425f87f3b06d25af45d8b96f9682"
 
 SRC_URI = "git://github.com/drkjam/netaddr.git;protocol=https;branch=rel-0.7.x"
-SRCREV = "7e8db517cc1c42a390c06061d9bfc20edb3cba02"
+SRCREV = "688e53c12ed768c3f7868ea2c57f4fb575368b02"
 
 # SRCREV == tag
-PV = "0.7.15"
+PV = "0.7.17"
 
 S = "${WORKDIR}/git"
 

@@ -6,13 +6,13 @@ SECTION = "devel/python"
 LICENSE = "AGPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=73f1eb20517c55bf9493b7dd6e480788"
 
-# 1.2.6 tag
-SRCREV = "536bb31965db17b969e7c1c53e241ddac4ae1814"
+SRCREV = "40fe74ef457d7070d45aa2fa77b7a1464c6f35da"
 
-PV = "1.2.6"
+PV = "1.2.7+git${SRCPV}"
 
 
 SRC_URI = "git://github.com/foosel/OctoPrint.git;protocol=https;branch=maintenance \ 
+           file://0001-setup-lock-netifaces-to-0.10.4.patch \
            file://config.yaml \
            file://octoprint.service \
            file://octoprint \

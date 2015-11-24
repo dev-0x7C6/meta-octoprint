@@ -9,8 +9,8 @@ SRCNAME = "netifaces"
 inherit setuptools
 
 SRC_URI = "https://pypi.python.org/packages/source/n/netifaces/${SRCNAME}-${PV}.tar.gz"
-SRC_URI[md5sum] = "e57e5983f4c286fac5f8068fbfc5c873"
-SRC_URI[sha256sum] = "53a711038db3d6e5cf7129d6f751185fd052f830f12f271fbfe17bd2671ab1ec"
+SRC_URI[md5sum] = "36da76e2cfadd24cc7510c2c0012eb1e"
+SRC_URI[sha256sum] = "9656a169cb83da34d732b0eb72b39373d48774aee009a3d1272b7ea2ce109cde"
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 

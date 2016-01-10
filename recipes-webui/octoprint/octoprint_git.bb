@@ -6,9 +6,9 @@ SECTION = "devel/python"
 LICENSE = "AGPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=73f1eb20517c55bf9493b7dd6e480788"
 
-SRCREV = "40fe74ef457d7070d45aa2fa77b7a1464c6f35da"
+SRCREV = "9fd8b09e34d0654df5c50470a532a935e2404eee"
 
-PV = "1.2.7+git${SRCPV}"
+PV = "1.2.8+git${SRCPV}"
 
 
 SRC_URI = "git://github.com/foosel/OctoPrint.git;protocol=https;branch=maintenance \ 

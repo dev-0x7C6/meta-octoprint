@@ -6,9 +6,9 @@ SECTION = "devel/python"
 LICENSE = "AGPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=73f1eb20517c55bf9493b7dd6e480788"
 
-SRCREV = "9fd8b09e34d0654df5c50470a532a935e2404eee"
+SRCREV = "692166f067329cd3d6fdc84389e0dd76184c5e0c"
 
-PV = "1.2.8+git${SRCPV}"
+PV = "1.2.10+git${SRCPV}"
 
 
 SRC_URI = "git://github.com/foosel/OctoPrint.git;protocol=https;branch=maintenance \ 
@@ -69,40 +69,40 @@ pkg_postinst_${PN}_append () {
         chown -R octoprint $D${sysconfdir}/octoprint
 }
 
-RDEPENDS_${PN} = "python-tornado \
-                  python-pyyaml \
-                  python-numpy \
-                  python-pyserial \
-                  python-werkzeug \
-                  python-html \
-                  python-sockjs-tornado \
-                  python-tornado \
-                  python-json \
+RDEPENDS_${PN} = "python-awesome-slugify \
                   python-backports-ssl \
-                  python-flask \
-                  python-flask-login \
-                  python-flask-principal \
-                  python-netserver \
-                  python-itsdangerous \
-                  python-markupsafe \
                   python-blinker \
-                  python-netaddr \
-                  python-jinja2 \
-                  python-watchdog \
-                  python-pathtools \
-                  python-sarge \
-                  python-sphinxcontrib-httpdomain \
-                  python-sphinx-rtd-theme \
-                  python-pip \
-                  python-semantic-version \
-                  python-requests \
-                  python-pkginfo \
-                  python-rsa \
-                  python-pylru \
-                  python-netifaces \
+                  python-flask \
                   python-flask-assets \
                   python-flask-babel \
+                  python-flask-login \
+                  python-flask-principal \
+                  python-html \
+                  python-itsdangerous \
+                  python-jinja2 \
+                  python-json \
+                  python-markupsafe \
+                  python-netaddr \
+                  python-netifaces \
+                  python-netserver \
+                  python-numpy \
+                  python-pathtools \
+                  python-pip \
+                  python-pkginfo \
                   python-psutil \
+                  python-pylru \
+                  python-pyserial \
+                  python-pyyaml \
+                  python-requests \
+                  python-rsa \
+                  python-sarge \
+                  python-semantic-version \
+                  python-sockjs-tornado \
+                  python-sphinx-rtd-theme \
+                  python-sphinxcontrib-httpdomain \
+                  python-tornado \
+                  python-watchdog \
+                  python-werkzeug \
                   sudo \
                   curaengine \ 
 "

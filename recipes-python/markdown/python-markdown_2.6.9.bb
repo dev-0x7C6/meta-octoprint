@@ -4,7 +4,7 @@ SECTION = "devel/python"
 HOMEPAGE = "https://pypi.python.org/pypi/rsa/"
 
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=a1d27014d3d0d7ae5fb973adab04ee30"
+LIC_FILES_CHKSUM = "file://LICENSE.md;md5=bb64a898b2c7d3bbb677124ebd2ba57a"
 
 SRC_URI = "https://pypi.python.org/packages/29/82/dfe242bcfd9eec0e7bf93a80a8f8d8515a95b980c44f5c0b45606397a423/Markdown-${PV}.tar.gz"
 SRC_URI[md5sum] = "56547d362a9abcf30955b8950b08b5e3"

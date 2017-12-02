@@ -6,13 +6,12 @@ SECTION = "devel/python"
 LICENSE = "AGPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=73f1eb20517c55bf9493b7dd6e480788"
 
-SRCREV = "692166f067329cd3d6fdc84389e0dd76184c5e0c"
+SRCREV = "6976ac9edd45770fe258811cf41ffe701b07dfc7"
 
-PV = "1.2.10+git${SRCPV}"
+PV = "1.2.18+git${SRCPV}"
 
 
 SRC_URI = "git://github.com/foosel/OctoPrint.git;protocol=https;branch=maintenance \ 
-           file://0001-setup-lock-netifaces-to-0.10.4.patch \
            file://config.yaml \
            file://octoprint.service \
            file://octoprint \
@@ -72,16 +71,17 @@ pkg_postinst_${PN}_append () {
 RDEPENDS_${PN} = "python-awesome-slugify \
                   python-backports-ssl \
                   python-blinker \
+                  python-feedparser \
                   python-flask \
                   python-flask-assets \
                   python-flask-babel \
-                  python-flask-login \
+                  python-flask-login2 \
                   python-flask-principal \
                   python-html \
                   python-itsdangerous \
                   python-jinja2 \
                   python-json \
-                  python-markupsafe \
+                  python-markdown \
                   python-netaddr \
                   python-netifaces \
                   python-netserver \
@@ -92,7 +92,7 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   python-psutil \
                   python-pylru \
                   python-pyserial \
-                  python-pyyaml \
+                  python-pyyaml310 \
                   python-requests \
                   python-rsa \
                   python-sarge \
@@ -102,7 +102,7 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   python-sphinxcontrib-httpdomain \
                   python-tornado \
                   python-watchdog \
-                  python-werkzeug \
+                  python-werkzeug08 \
                   sudo \
                   curaengine \ 
 "

@@ -12,7 +12,7 @@ SRC_URI[sha256sum] = "51477646a9169469e37e791b13ae65fcc75b7f7f570d0d3e514d077805
 
 S = "${WORKDIR}/Unidecode-${PV}"
 
-inherit distutils 
+inherit setuptools
 
 export BUILD_SYS
 export HOST_SYS

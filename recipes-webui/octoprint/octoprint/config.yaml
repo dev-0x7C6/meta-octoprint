@@ -11,7 +11,7 @@ plugins:
   pluginmanager:
     pip: /usr/bin/pip-sudo
 webcam:
-  ffmpeg: /usr/bin/avconv
+  ffmpeg: /usr/bin/ffmpeg
   ffmpegThreads: 4
   snapshot: /webcam/?action=snapshot
   stream: http://localhost/webcam/?action=stream

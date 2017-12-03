@@ -107,7 +107,7 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   curaengine \ 
 "
 
-RRECOMMENDS_${PN} = "libav \
+RRECOMMENDS_${PN} = "ffmpeg \
                      mjpg-streamer \
                      octoprint-nginx \
                     "

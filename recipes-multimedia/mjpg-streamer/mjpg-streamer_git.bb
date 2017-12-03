@@ -4,38 +4,29 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=751419260aa954499f7abaabaa882bbe"
 
 PV = "0.4+git${SRCPV}"
-SRCREV = "5f6adeefa0d5a78833cc809f2bfa76131f2b9ff8"
+SRCREV = "c1ecfaf7c5cb958cdfd251bdaa9824c3e798f890"
 SRC_URI = "git://github.com/jacksonliam/mjpg-streamer.git;protocol=https \
-           file://0001-Makefile-don-t-overwrite-C-LDFLAGS.patch;striplevel=2 \
+           file://0001-slightly-unbreak-raspi-cmake.patch;striplevel=2 \
           "
 
 DEPENDS = "libgphoto2 v4l-utils"
 
+# Add support for raspicam on rpi platforms
+DEPENDS_append_rpi = " ${@bb.utils.contains("MACHINE_FEATURES", "vc4graphics", "", "userland", d)}"
+
 S = "${WORKDIR}/git/mjpg-streamer-experimental"
 
-CFLAGS =+ "-DLINUX -D_GNU_SOURCE "
+inherit cmake
 
-do_configure() {
-    # disable some stuff
-    sed -i -e '/PLUGINS += input_raspicam.so/d' ${S}/Makefile
-    sed -i -e 's/# PLUGINS += input_ptp2.so/PLUGINS += input_ptp2.so/' ${S}/Makefile
-}
+EXTRA_OECMAKE = "-DENABLE_HTTP_MANAGEMENT=ON"
 
-EXTRA_OEMAKE = "USE_LIBV4L2=1"
-
-# oe_runmake seems to reset MAKEFLAGS, so just call plain make
-do_compile() {
-    make -e ${EXTRA_OEMAKE}
-}
+EXTRA_OECMAKE_append_rpi = " ${@bb.utils.contains("MACHINE_FEATURES", "vc4graphics", "-DHAS_RASPI=OFF", "-DHAS_RASPI=ON", d)}"
 
 do_install() {
-    install -d ${D}${bindir}
-    install -d ${D}${libdir}
-
-    oe_runmake install DESTDIR=${D}${prefix}
-
-    install -d ${D}${datadir}/mjpg-streamer/
-    mv ${D}${prefix}/www ${D}${datadir}/mjpg-streamer/
+    oe_runmake install DESTDIR=${D}
 }
 
 FILES_${PN} += "${libdir}/*.so"
+
+# And make it rpi specific due to depending on rpi binaries
+PACKAGE_ARCH_rpi = "${MACHINE_ARCH}"

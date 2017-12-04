@@ -9,9 +9,11 @@ SRC_URI = "file://nginx.conf \
            file://LICENSE \
           "
 
-do_configure() {
+do_unpack2() {
     cp ${WORKDIR}/LICENSE ${S}
 }
+
+addtask unpack2 before do_populate_lic after do_unpack
 
 do_install() {
     install -d ${D}${sysconfdir}/nginx/

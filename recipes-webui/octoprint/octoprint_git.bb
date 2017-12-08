@@ -6,9 +6,9 @@ SECTION = "devel/python"
 LICENSE = "AGPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=73f1eb20517c55bf9493b7dd6e480788"
 
-SRCREV = "1d0657a8ebf5ed7b22b2a3663ba13389dd500f6d"
+SRCREV = "13eb5ec7ed5933dd0e15793a2dcdef7e26e4a987"
 
-PV = "1.2.18+git${SRCPV}"
+PV = "1.3.5+1.3.6rc2+git${SRCPV}"
 
 
 SRC_URI = "git://github.com/foosel/OctoPrint.git;protocol=https;branch=maintenance \ 
@@ -79,7 +79,7 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   python-flask-principal \
                   python-html \
                   python-itsdangerous \
-                  python-jinja2 \
+                  python-jinja2.8 \
                   python-json \
                   python-markdown \
                   python-netaddr \
@@ -91,7 +91,7 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   python-pkginfo \
                   python-psutil \
                   python-pylru \
-                  python-pyserial \
+                  python-pyserial27 \
                   python-pyyaml310 \
                   python-requests \
                   python-rsa \
@@ -100,9 +100,19 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   python-sockjs-tornado \
                   python-sphinx-rtd-theme \
                   python-sphinxcontrib-httpdomain \
-                  python-tornado \
+                  python-tornado40 \
                   python-watchdog \
                   python-werkzeug08 \
+                  python-click62 \
+                  python-chainmap \
+                  python-future15 \
+                  python-scandir \
+                  python-websocket-client \
+                  python-dateutil \
+                  python-wrapt \
+                  python-futures \
+                  python-emoji \
+                  python-monotonic \
                   sudo \
                   curaengine \ 
 "

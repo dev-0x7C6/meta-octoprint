@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=73f1eb20517c55bf9493b7dd6e480788"
 
 DEPENDS = "protobuf3-native libarcus"
 
-# Octoprint 1.2.4 can only have 15.04, the ultimaker folks changed the configs in between.
+# OctoPrint 1.2.4 can only have 15.04, the ultimaker folks changed the configs in between.
 DEFAULT_PREFERENCE = "-1"
 
 # SRCREV = tag, no +git.. needed

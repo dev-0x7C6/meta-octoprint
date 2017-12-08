@@ -19,4 +19,5 @@ RDEPENDS_${PN} = "\
     python-io \
     python-stringold \
 "
+RCONFLICTS_${PN} = "python-pyserial"
 

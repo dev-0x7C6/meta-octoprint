@@ -14,6 +14,9 @@ DEPENDS = "libgphoto2 v4l-utils"
 
 # Add support for raspicam on rpi platforms
 DEPENDS_append_rpi = " ${@bb.utils.contains("MACHINE_FEATURES", "vc4graphics", "", "userland", d)}"
+# https://lists.yoctoproject.org/pipermail/yocto/2014-June/019933.html
+ASNEEDED_rpi = ""
+
 
 S = "${WORKDIR}/git/mjpg-streamer-experimental"
 

@@ -7,7 +7,6 @@ PV = "0.4+git${SRCPV}"
 SRCREV = "c1ecfaf7c5cb958cdfd251bdaa9824c3e798f890"
 SRC_URI = "git://github.com/jacksonliam/mjpg-streamer.git;protocol=https \
            file://0001-slightly-unbreak-raspi-cmake.patch;striplevel=2 \
-           file://0001-Updated-RaspiCamControl-source-file.patch;striplevel=2 \
           "
 
 DEPENDS = "libgphoto2 v4l-utils"

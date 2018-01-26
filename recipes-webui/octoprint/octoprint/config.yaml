@@ -10,34 +10,35 @@ plugins:
     default_profile: null
   pluginmanager:
     pip: /usr/bin/pip-sudo
+  softwareupdate:
+    _config_version: 6
+    checks:
+      octoprint:
+        checkout_folder: null
+        prerelease: false
+        prerelease_channel: null
+    notify_users: false
 webcam:
+  bitrate: 15000k
   ffmpeg: /usr/bin/ffmpeg
   ffmpegThreads: 4
-  snapshot: /webcam/?action=snapshot
+  snapshot: http://localhost/webcam/?action=snapshot
   stream: http://localhost/webcam/?action=stream
   timelapse:
     fps: 25
     options:
-      interval: 10
-    postRoll: 2
+      capturePostRoll: false
+      interval: 20
+    postRoll: 1
     type: timed
+server:
+  onlineCheck:
+    enabled: true
+  pluginBlacklist:
+    enabled: true
+  commands:
+    serverRestartCommand: sudo systemctl restart octoprint
+    systemRestartCommand: sudo shutdown -r now
+    systemShutdownCommand: sudo shutdown -h now
 system:
-  actions:
-  - action: shutdown
-    async: true
-    command: sudo shutdown -h now
-    confirm: You are about to shutdown the system.
-    ignore: true
-    name: Shutdown
-  - action: reboot
-    async: true
-    command: sudo shutdown -r now
-    confirm: You are about to reboot the system
-    ignore: true
-    name: Reboot
-  - action: restart
-    async: true
-    command: sudo systemctl restart octoprint
-    confirm: You are about to restart OctoPrint
-    ignore: true
-    name: Restart OctoPrint
+  actions: []

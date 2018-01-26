@@ -5,6 +5,9 @@ Description=The responsive web interface for your 3D printer
 User=octoprint
 Type=simple
 ExecStart=/usr/bin/octoprint --config /etc/octoprint/config.yaml serve
+Nice=-10
+IOSchedulingClass=realtime
+IOSchedulingPriority=0
 
 [Install]
 WantedBy=basic.target

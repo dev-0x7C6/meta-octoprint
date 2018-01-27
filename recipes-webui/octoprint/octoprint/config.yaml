@@ -4,6 +4,24 @@ serial:
   port: /dev/ttyUSB0
   timeout: {}
 plugins:
+  announcements:
+    _config_version: 1
+    channels:
+      _blog:
+        read_until: 1513605600
+      _important:
+        read_until: 1509547500
+      _octopi:
+        read_until: 1499253000
+      _plugins:
+        read_until: 1516579200
+      _releases:
+        read_until: 1513079100
+    enabled_channels:
+    - _octopi
+    - _plugins
+    - _important
+    - _blog
   cura:
     cura_engine: /usr/bin/CuraEngine
     debug_logging: false

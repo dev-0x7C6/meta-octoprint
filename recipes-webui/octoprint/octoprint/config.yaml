@@ -39,7 +39,7 @@ plugins:
 webcam:
   bitrate: 15000k
   ffmpeg: /usr/bin/ffmpeg
-  ffmpegThreads: 4
+  ffmpegThreads: 0
   snapshot: http://localhost/webcam/?action=snapshot
   stream: http://localhost/webcam/?action=stream
   timelapse:

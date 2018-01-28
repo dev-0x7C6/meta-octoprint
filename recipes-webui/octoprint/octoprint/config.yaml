@@ -41,7 +41,7 @@ webcam:
   ffmpeg: /usr/bin/ffmpeg
   ffmpegThreads: 0
   snapshot: http://localhost/webcam/?action=snapshot
-  stream: http://localhost/webcam/?action=stream
+  stream: /webcam/?action=stream
   timelapse:
     fps: 25
     options:

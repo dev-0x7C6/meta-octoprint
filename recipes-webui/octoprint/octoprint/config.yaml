@@ -40,7 +40,7 @@ webcam:
   bitrate: 15000k
   ffmpeg: /usr/bin/ffmpeg
   ffmpegThreads: 0
-  snapshot: http://localhost/webcam/?action=snapshot
+  snapshot: http://localhost:8080/?action=snapshot
   stream: /webcam/?action=stream
   timelapse:
     fps: 25

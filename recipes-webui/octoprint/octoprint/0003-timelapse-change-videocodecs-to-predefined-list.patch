@@ -1,0 +1,37 @@
+From fc938640e9f0487ce0861cc964ad5883892f1a76 Mon Sep 17 00:00:00 2001
+From: Koen Kooi <koen@dominion.thruhere.net>
+Date: Sat, 27 Jan 2018 13:39:18 +0100
+Subject: [PATCH 3/3] timelapse: change videocodecs to predefined list
+
+---
+ src/octoprint/static/js/app/viewmodels/settings.js                      | 1 +
+ .../templates/snippets/settings/webcam/ffmpegVideoCodec.jinja2          | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/src/octoprint/static/js/app/viewmodels/settings.js b/src/octoprint/static/js/app/viewmodels/settings.js
+index baeb1e4..552074e 100644
+--- a/src/octoprint/static/js/app/viewmodels/settings.js
++++ b/src/octoprint/static/js/app/viewmodels/settings.js
+@@ -97,6 +97,7 @@ $(function() {
+         };
+ 
+         self.webcam_available_ratios = ["16:9", "4:3"];
++        self.webcam_available_videocodecs = ["mpeg2video", "libx264"];
+ 
+         var auto_locale = {language: "_default", display: gettext("Autodetect from browser"), english: undefined};
+         self.locales = ko.observableArray([auto_locale].concat(_.sortBy(_.values(AVAILABLE_LOCALES), function(n) {
+diff --git a/src/octoprint/templates/snippets/settings/webcam/ffmpegVideoCodec.jinja2 b/src/octoprint/templates/snippets/settings/webcam/ffmpegVideoCodec.jinja2
+index 920a534..b01f5d8 100644
+--- a/src/octoprint/templates/snippets/settings/webcam/ffmpegVideoCodec.jinja2
++++ b/src/octoprint/templates/snippets/settings/webcam/ffmpegVideoCodec.jinja2
+@@ -1,6 +1,6 @@
+ <div class="control-group" title="{{ _('Videocodec uses for encoding') }}">
+     <label class="control-label" for="settings-webcam_ffmpegVideoCodec">{{ _('Videocodec') }}</label>
+     <div class="controls">
+-        <input class="input-mini" data-bind="value: webcam_ffmpegVIdeoCodec" id="settings-webcamFfmpegVideoCodec" type="text">
++        <select data-bind="options: webcam_available_videocodecs, value: webcam_ffmpegVideoCodec"></select>
+     </div>
+ </div>
+-- 
+2.0.1
+

@@ -12,6 +12,9 @@ PV = "1.3.6+git${SRCPV}"
 
 
 SRC_URI = "git://github.com/foosel/OctoPrint.git;protocol=https;branch=maintenance \ 
+           file://0001-timelapse-add-m4v-and-mkv-as-supported-container-for.patch \
+           file://0002-timelapse-add-setting-for-videocodec.patch \
+           file://0003-timelapse-change-videocodecs-to-predefined-list.patch \
            file://config.yaml \
            file://octoprint.service \
            file://octoprint \

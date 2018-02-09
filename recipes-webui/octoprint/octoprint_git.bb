@@ -6,15 +6,15 @@ SECTION = "devel/python"
 LICENSE = "AGPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=73f1eb20517c55bf9493b7dd6e480788"
 
-SRCREV = "67005577b78a28724e288e33ede8c7a48ed156a2"
+SRCREV = "00616a3d73f48c5ba9a578cbe9057defa0a55cba"
 
 PV = "1.3.6+git${SRCPV}"
 
 
 SRC_URI = "git://github.com/foosel/OctoPrint.git;protocol=https;branch=maintenance \ 
-           file://0001-timelapse-add-m4v-and-mkv-as-supported-container-for.patch \
-           file://0002-timelapse-add-setting-for-videocodec.patch \
-           file://0003-timelapse-change-videocodecs-to-predefined-list.patch \
+           file://0001-timelapse-add-setting-for-videocodec.patch \
+           file://0002-timelapse-change-videocodecs-to-predefined-list.patch \
+           file://0003-timelapse-pick-container-and-suffix-based-on-setting.patch \
            file://config.yaml \
            file://octoprint.service \
            file://octoprint \

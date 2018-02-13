@@ -6,7 +6,7 @@ SECTION = "devel/python"
 LICENSE = "AGPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=73f1eb20517c55bf9493b7dd6e480788"
 
-SRCREV = "00616a3d73f48c5ba9a578cbe9057defa0a55cba"
+SRCREV = "de9fdf79c47264587c3dc313e669115e20abe642"
 
 PV = "1.3.6+git${SRCPV}"
 
@@ -94,7 +94,7 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   python-pkginfo \
                   python-psutil \
                   python-pylru \
-                  python-pyserial27 \
+                  python-pyserial \
                   python-pyyaml310 \
                   python-requests \
                   python-rsa \

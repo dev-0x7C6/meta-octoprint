@@ -21,6 +21,7 @@ S = "${WORKDIR}/git/mjpg-streamer-experimental"
 
 inherit cmake
 
+OECMAKE_GENERATOR="Unix Makefiles"
 EXTRA_OECMAKE = "-DENABLE_HTTP_MANAGEMENT=ON"
 
 EXTRA_OECMAKE_append_rpi = " ${@bb.utils.contains("MACHINE_FEATURES", "vc4graphics", "-DHAS_RASPI=OFF", "-DHAS_RASPI=ON", d)}"

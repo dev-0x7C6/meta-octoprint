@@ -1,4 +1,4 @@
-From 7123835a97e902eb2c5e0755c1871f82476c451a Mon Sep 17 00:00:00 2001
+From 67308d8af542816f88f7500ed076fe8ecead2501 Mon Sep 17 00:00:00 2001
 From: Koen Kooi <koen@dominion.thruhere.net>
 Date: Sat, 27 Jan 2018 14:25:27 +0100
 Subject: [PATCH 3/3] timelapse: pick container and suffix based on setting
@@ -8,10 +8,10 @@ Subject: [PATCH 3/3] timelapse: pick container and suffix based on setting
  1 file changed, 14 insertions(+), 3 deletions(-)
 
 diff --git a/src/octoprint/timelapse.py b/src/octoprint/timelapse.py
-index 7d4c621..45deebf 100644
+index 0e01972..a1e59f7 100644
 --- a/src/octoprint/timelapse.py
 +++ b/src/octoprint/timelapse.py
-@@ -43,7 +43,7 @@ current_render_job = None
+@@ -42,7 +42,7 @@ current_render_job = None
  
  # filename formats
  _capture_format = "{prefix}-%d.jpg"
@@ -20,7 +20,7 @@ index 7d4c621..45deebf 100644
  
  # old capture format, needed to delete old left-overs from
  # versions <1.2.9
-@@ -796,7 +796,7 @@ class TimelapseRenderJob(object):
+@@ -741,7 +741,7 @@ class TimelapseRenderJob(object):
  	render_job_lock = threading.RLock()
  
  	def __init__(self, capture_dir, output_dir, prefix, postfix=None, capture_glob="{prefix}-*.jpg",
@@ -29,7 +29,7 @@ index 7d4c621..45deebf 100644
  	             videocodec="mpeg2video", on_start=None, on_success=None, on_fail=None, on_always=None):
  		self._capture_dir = capture_dir
  		self._output_dir = output_dir
-@@ -840,6 +840,11 @@ class TimelapseRenderJob(object):
+@@ -785,6 +785,11 @@ class TimelapseRenderJob(object):
  		output = os.path.join(self._output_dir,
  		                      self._output_format.format(prefix=self._prefix,
  		                                                 postfix=self._postfix if self._postfix is not None else ""))
@@ -41,7 +41,7 @@ index 7d4c621..45deebf 100644
  
  		for i in range(4):
  			if os.path.exists(input % i):
-@@ -913,10 +918,16 @@ class TimelapseRenderJob(object):
+@@ -858,10 +863,16 @@ class TimelapseRenderJob(object):
  
  		logger = logging.getLogger(__name__)
  

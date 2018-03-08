@@ -1,4 +1,4 @@
-From d9fccb647963c4e44717a56fe95e91ce574fb29f Mon Sep 17 00:00:00 2001
+From 8f7815287d7fdacbca7d84bfc85531d489dd8473 Mon Sep 17 00:00:00 2001
 From: Koen Kooi <koen@dominion.thruhere.net>
 Date: Sat, 27 Jan 2018 13:39:18 +0100
 Subject: [PATCH 2/3] timelapse: change videocodecs to predefined list
@@ -9,7 +9,7 @@ Subject: [PATCH 2/3] timelapse: change videocodecs to predefined list
  2 files changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/src/octoprint/static/js/app/viewmodels/settings.js b/src/octoprint/static/js/app/viewmodels/settings.js
-index baeb1e4..552074e 100644
+index bb95a88..99627e2 100644
 --- a/src/octoprint/static/js/app/viewmodels/settings.js
 +++ b/src/octoprint/static/js/app/viewmodels/settings.js
 @@ -97,6 +97,7 @@ $(function() {

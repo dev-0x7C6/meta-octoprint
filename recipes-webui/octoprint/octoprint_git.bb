@@ -6,11 +6,11 @@ SECTION = "devel/python"
 LICENSE = "AGPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=73f1eb20517c55bf9493b7dd6e480788"
 
-SRCREV = "de9fdf79c47264587c3dc313e669115e20abe642"
+SRCREV = "bb61bbb2b49c5fcbebf3bd79495ba2654d0348bc"
 
 PV = "1.3.6+git${SRCPV}"
 
-
+PATCHTOOL = "git"
 SRC_URI = "git://github.com/foosel/OctoPrint.git;protocol=https;branch=maintenance \ 
            file://0001-timelapse-add-setting-for-videocodec.patch \
            file://0002-timelapse-change-videocodecs-to-predefined-list.patch \
@@ -80,6 +80,7 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   python-flask-babel \
                   python-flask-login2 \
                   python-flask-principal \
+                  python-frozendict \
                   python-html \
                   python-itsdangerous \
                   python-jinja2.8 \

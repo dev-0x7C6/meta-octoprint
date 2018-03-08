@@ -1,4 +1,4 @@
-From a43fd8b98b95d512fd3b4e83b5b0c3af2536efda Mon Sep 17 00:00:00 2001
+From 2fb4b4d9e4f95db8bcdad5c8a52006de8811c1e8 Mon Sep 17 00:00:00 2001
 From: Koen Kooi <koen@dominion.thruhere.net>
 Date: Sat, 27 Jan 2018 12:09:28 +0100
 Subject: [PATCH 1/3] timelapse: add setting for videocodec
@@ -29,10 +29,10 @@ index b26b2d2..7be1b1e 100644
       -
     * - ``webcam.flipH``
 diff --git a/docs/configuration/config_yaml.rst b/docs/configuration/config_yaml.rst
-index f469c20..1c3351f 100644
+index 7205ee1..6ccf9b9 100644
 --- a/docs/configuration/config_yaml.rst
 +++ b/docs/configuration/config_yaml.rst
-@@ -1156,6 +1156,9 @@ Use the following settings to configure webcam support:
+@@ -1181,6 +1181,9 @@ Use the following settings to configure webcam support:
       # Should be left at 1 for RPi1.
       ffmpegThreads: 1
  
@@ -43,10 +43,10 @@ index f469c20..1c3351f 100644
       bitrate: 5000k
  
 diff --git a/src/octoprint/server/api/settings.py b/src/octoprint/server/api/settings.py
-index 8526d5f..7567682 100644
+index 9ccb461..13ab076 100644
 --- a/src/octoprint/server/api/settings.py
 +++ b/src/octoprint/server/api/settings.py
-@@ -104,6 +104,7 @@ def getSettings():
+@@ -106,6 +106,7 @@ def getSettings():
  			"ffmpegPath": s.get(["webcam", "ffmpeg"]),
  			"bitrate": s.get(["webcam", "bitrate"]),
  			"ffmpegThreads": s.get(["webcam", "ffmpegThreads"]),
@@ -54,7 +54,7 @@ index 8526d5f..7567682 100644
  			"watermark": s.getBoolean(["webcam", "watermark"]),
  			"flipH": s.getBoolean(["webcam", "flipH"]),
  			"flipV": s.getBoolean(["webcam", "flipV"]),
-@@ -335,6 +336,8 @@ def _saveSettings(data):
+@@ -341,6 +342,8 @@ def _saveSettings(data):
  		if "ffmpegPath" in data["webcam"]: s.set(["webcam", "ffmpeg"], data["webcam"]["ffmpegPath"])
  		if "bitrate" in data["webcam"]: s.set(["webcam", "bitrate"], data["webcam"]["bitrate"])
  		if "ffmpegThreads" in data["webcam"]: s.setInt(["webcam", "ffmpegThreads"], data["webcam"]["ffmpegThreads"])
@@ -64,11 +64,11 @@ index 8526d5f..7567682 100644
  		if "flipH" in data["webcam"]: s.setBoolean(["webcam", "flipH"], data["webcam"]["flipH"])
  		if "flipV" in data["webcam"]: s.setBoolean(["webcam", "flipV"], data["webcam"]["flipV"])
 diff --git a/src/octoprint/settings.py b/src/octoprint/settings.py
-index f8e5b09..fdbe7a3 100644
+index e360077..72823ec 100644
 --- a/src/octoprint/settings.py
 +++ b/src/octoprint/settings.py
-@@ -178,6 +178,7 @@ default_settings = {
- 		"snapshot": None,
+@@ -205,6 +205,7 @@ default_settings = {
+ 		"snapshotSslValidation": True,
  		"ffmpeg": None,
  		"ffmpegThreads": 1,
 +		"ffmpegVideoCodec": "mpeg2video",
@@ -76,10 +76,10 @@ index f8e5b09..fdbe7a3 100644
  		"watermark": True,
  		"flipH": False,
 diff --git a/src/octoprint/static/js/app/viewmodels/settings.js b/src/octoprint/static/js/app/viewmodels/settings.js
-index 5bf1158..baeb1e4 100644
+index c2ee03f..bb95a88 100644
 --- a/src/octoprint/static/js/app/viewmodels/settings.js
 +++ b/src/octoprint/static/js/app/viewmodels/settings.js
-@@ -123,6 +123,7 @@ $(function() {
+@@ -125,6 +125,7 @@ $(function() {
          self.webcam_ffmpegPath = ko.observable(undefined);
          self.webcam_bitrate = ko.observable(undefined);
          self.webcam_ffmpegThreads = ko.observable(undefined);
@@ -88,13 +88,13 @@ index 5bf1158..baeb1e4 100644
          self.webcam_flipH = ko.observable(undefined);
          self.webcam_flipV = ko.observable(undefined);
 diff --git a/src/octoprint/templates/dialogs/settings/webcam.jinja2 b/src/octoprint/templates/dialogs/settings/webcam.jinja2
-index 60a846c..f103b54 100644
+index 7a1330e..f9b72b0 100644
 --- a/src/octoprint/templates/dialogs/settings/webcam.jinja2
 +++ b/src/octoprint/templates/dialogs/settings/webcam.jinja2
-@@ -24,6 +24,7 @@
-         <div class="hide">
-             {% include "snippets/settings/webcam/ffmpegBitrate.jinja2" %}
+@@ -26,6 +26,7 @@
              {% include "snippets/settings/webcam/ffmpegThreads.jinja2" %}
+             {% include "snippets/settings/webcam/webcamSnapshotTimeout.jinja2" %}
+             {% include "snippets/settings/webcam/webcamSnapshotSslValidation.jinja2" %}
 +            {% include "snippets/settings/webcam/ffmpegVideoCodec.jinja2" %}
          </div>
      </div>
@@ -112,10 +112,10 @@ index 0000000..920a534
 +    </div>
 +</div>
 diff --git a/src/octoprint/timelapse.py b/src/octoprint/timelapse.py
-index 40452bd..7d4c621 100644
+index d18fb2d..0e01972 100644
 --- a/src/octoprint/timelapse.py
 +++ b/src/octoprint/timelapse.py
-@@ -159,6 +159,7 @@ def render_unrendered_timelapse(name, gcode=None, postfix=None, fps=25):
+@@ -158,6 +158,7 @@ def render_unrendered_timelapse(name, gcode=None, postfix=None, fps=25):
  	capture_dir = settings().getBaseFolder("timelapse_tmp")
  	output_dir = settings().getBaseFolder("timelapse")
  	threads = settings().get(["webcam", "ffmpegThreads"])
@@ -123,7 +123,7 @@ index 40452bd..7d4c621 100644
  
  	job = TimelapseRenderJob(capture_dir, output_dir, name,
  	                         postfix=postfix,
-@@ -166,6 +167,7 @@ def render_unrendered_timelapse(name, gcode=None, postfix=None, fps=25):
+@@ -165,6 +166,7 @@ def render_unrendered_timelapse(name, gcode=None, postfix=None, fps=25):
  	                         output_format=_output_format,
  	                         fps=fps,
  	                         threads=threads,
@@ -131,7 +131,7 @@ index 40452bd..7d4c621 100644
  	                         on_start=_create_render_start_handler(name, gcode=gcode),
  	                         on_success=_create_render_success_handler(name, gcode=gcode),
  	                         on_fail=_create_render_fail_handler(name, gcode=gcode),
-@@ -795,7 +797,7 @@ class TimelapseRenderJob(object):
+@@ -740,7 +742,7 @@ class TimelapseRenderJob(object):
  
  	def __init__(self, capture_dir, output_dir, prefix, postfix=None, capture_glob="{prefix}-*.jpg",
  	             capture_format="{prefix}-%d.jpg", output_format="{prefix}{postfix}.mpg", fps=25, threads=1,
@@ -140,7 +140,7 @@ index 40452bd..7d4c621 100644
  		self._capture_dir = capture_dir
  		self._output_dir = output_dir
  		self._prefix = prefix
-@@ -805,6 +807,7 @@ class TimelapseRenderJob(object):
+@@ -750,6 +752,7 @@ class TimelapseRenderJob(object):
  		self._output_format = output_format
  		self._fps = fps
  		self._threads = threads
@@ -148,7 +148,7 @@ index 40452bd..7d4c621 100644
  		self._on_start = on_start
  		self._on_success = on_success
  		self._on_fail = on_fail
-@@ -860,7 +863,8 @@ class TimelapseRenderJob(object):
+@@ -805,7 +808,8 @@ class TimelapseRenderJob(object):
  
  		# prepare ffmpeg command
  		command_str = self._create_ffmpeg_command_string(ffmpeg, self._fps, bitrate, self._threads, input, output,
@@ -158,7 +158,7 @@ index 40452bd..7d4c621 100644
  		self._logger.debug("Executing command: {}".format(command_str))
  
  		with self.render_job_lock:
-@@ -882,7 +886,7 @@ class TimelapseRenderJob(object):
+@@ -827,7 +831,7 @@ class TimelapseRenderJob(object):
  				self._notify_callback("always", output)
  
  	@classmethod
@@ -167,7 +167,7 @@ index 40452bd..7d4c621 100644
  	                                  rotate=False, watermark=None, pixfmt="yuv420p"):
  		"""
  		Create ffmpeg command string based on input parameters.
-@@ -892,7 +896,8 @@ class TimelapseRenderJob(object):
+@@ -837,7 +841,8 @@ class TimelapseRenderJob(object):
  		    fps (int): Frames per second for output
  		    bitrate (str): Bitrate of output
  		    threads (int): Number of threads to use for rendering
@@ -177,7 +177,7 @@ index 40452bd..7d4c621 100644
  		    output (str): Absolute path to output file
  		    hflip (bool): Perform horizontal flip on input material.
  		    vflip (bool): Perform vertical flip on input material.
-@@ -909,7 +914,7 @@ class TimelapseRenderJob(object):
+@@ -854,7 +859,7 @@ class TimelapseRenderJob(object):
  		logger = logging.getLogger(__name__)
  
  		command = [

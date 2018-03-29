@@ -6,9 +6,9 @@ SECTION = "devel/python"
 LICENSE = "AGPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=73f1eb20517c55bf9493b7dd6e480788"
 
-SRCREV = "bb61bbb2b49c5fcbebf3bd79495ba2654d0348bc"
+SRCREV = "0070349d6646f2a8bd3c120530feab0990017770"
 
-PV = "1.3.6+git${SRCPV}"
+PV = "1.3.7+git${SRCPV}"
 
 PATCHTOOL = "git"
 SRC_URI = "git://github.com/foosel/OctoPrint.git;protocol=https;branch=maintenance \ 
@@ -104,7 +104,7 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   python-sockjs-tornado \
                   python-sphinx-rtd-theme \
                   python-sphinxcontrib-httpdomain \
-                  python-tornado40 \
+                  python-tornado50 \
                   python-watchdog \
                   python-werkzeug08 \
                   python-click62 \

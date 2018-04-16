@@ -2,9 +2,9 @@ DESCRIPTION = "Tornado is an open source version of the scalable, non-blocking w
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57"
 
-PV = "5.0.1"
+PV = "5.0.2+git${SRCPV}"
 
-SRCREV = "54ad63e907f4da96d6bddb84b860672b2dc9845b"
+SRCREV = "bbdd75a13c2540235ebd8b3cd42d52ac2b6c59fd"
 SRC_URI = "git://github.com/tornadoweb/tornado.git;branch=branch5.0"
 
 S = "${WORKDIR}/git"

@@ -29,5 +29,5 @@ RDEPENDS_${PN} = " \
     ${PYTHON_PN}-subprocess \
 "
 
-RCONFLICTS_${PN} = "python-tornado python-tornado40"
+RCONFLICTS_${PN} = "python-tornado python-tornado40 python-tornado45"
 

@@ -6,7 +6,7 @@ SECTION = "devel/python"
 LICENSE = "AGPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=73f1eb20517c55bf9493b7dd6e480788"
 
-SRCREV = "0da52cb3661ab20ab0a296990b3db0f300375b23"
+SRCREV = "f72b92caffc0c7854bc364f878ad76fbda4b005b"
 
 PV = "1.3.8+git${SRCPV}"
 
@@ -101,10 +101,10 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   python-rsa \
                   python-sarge \
                   python-semantic-version \
-                  python-sockjs-tornado \
+                  python-sockjs-tornado45 \
                   python-sphinx-rtd-theme \
                   python-sphinxcontrib-httpdomain \
-                  python-tornado50 \
+                  python-tornado45 \
                   python-watchdog \
                   python-werkzeug08 \
                   python-click62 \

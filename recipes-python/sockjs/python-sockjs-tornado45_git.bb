@@ -20,6 +20,7 @@ export HOST_SYS
 export STAGING_INCDIR
 export STAGING_LIBDIR
 
-RDEPENDS_${PN} = "python-tornado50"
+RDEPENDS_${PN} = "python-tornado45"
+RCONFLICTS_${PN} = "python-sockjs50"
 
 BBCLASSEXTEND = "native"

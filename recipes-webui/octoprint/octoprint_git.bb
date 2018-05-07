@@ -4,9 +4,9 @@ HOMEPAGE = "http://octoprint.org"
 SECTION = "devel/python"
 
 LICENSE = "AGPL-3.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=73f1eb20517c55bf9493b7dd6e480788"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=73f1eb20517c55bf9493b7dd6e480788"
 
-SRCREV = "f72b92caffc0c7854bc364f878ad76fbda4b005b"
+SRCREV = "81471df419205980a133b3fb7e5b9ce25c4eaa63"
 
 PV = "1.3.8+git${SRCPV}"
 

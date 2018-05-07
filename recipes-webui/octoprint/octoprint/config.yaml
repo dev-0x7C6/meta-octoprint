@@ -28,6 +28,7 @@ plugins:
     default_profile: null
   pluginmanager:
     pip: /usr/bin/pip-sudo
+    pip_force_user: true
   softwareupdate:
     pip_command: /usr/bin/pip-sudo
     _config_version: 6

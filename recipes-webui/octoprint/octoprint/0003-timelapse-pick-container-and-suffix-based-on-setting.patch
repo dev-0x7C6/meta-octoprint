@@ -33,7 +33,7 @@ index 0e01972..a1e59f7 100644
  		output = os.path.join(self._output_dir,
  		                      self._output_format.format(prefix=self._prefix,
  		                                                 postfix=self._postfix if self._postfix is not None else ""))
-+                if self._videocodec is 'mpeg2video':
++                if self._videocodec == 'mpeg2video':
 +                        suffix = ".mpg"
 +                else:
 +                        suffix = ".mp4"
@@ -46,7 +46,7 @@ index 0e01972..a1e59f7 100644
  		logger = logging.getLogger(__name__)
  
 +                ### Not all players can handle non-mpeg2 in VOB format
-+                if videocodec is 'mpeg2video':
++                if videocodec == 'mpeg2video':
 +                    containerformat = "vob"
 +                else:
 +                    containerformat = "mp4"

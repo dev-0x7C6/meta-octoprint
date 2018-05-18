@@ -7,9 +7,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=51917f3e8e858f5ae295a7d0e2eb3cc9"
 DEPENDS = "python-speaklater python-babel"
 
 SRC_URI = "git://github.com/mitsuhiko/flask-babel.git;protocol=https"
-SRCREV = "62c290fba3c38a9974bad4398980c908b4600a59"
+SRCREV = "5e10cfee729fc1efa5dbc29d4ee89e2b5447be3d"
 
-PV = "0.9+git${SRCPV}"
+PV = "0.11.2+git${SRCPV}"
 
 S = "${WORKDIR}/git"
 

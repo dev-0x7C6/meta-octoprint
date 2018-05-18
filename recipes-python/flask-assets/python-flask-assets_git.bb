@@ -9,9 +9,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=2c0c455026ee819a9365678bea8b2c82"
 DEPENDS = "python-webassets"
 
 SRC_URI = "git://github.com/miracle2k/flask-assets.git;protocol=https"
-SRCREV = "63cca49feda68a36d31f8115ebbe5dda67b986cc"
+SRCREV = "6ec476f8a91a4272915da3875c49676bd2baddcb"
 
-PV = "0.10+git${SRCPV}"
+PV = "0.12+git${SRCPV}"
 
 S = "${WORKDIR}/git"
 

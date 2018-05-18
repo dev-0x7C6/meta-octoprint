@@ -6,15 +6,12 @@ SECTION = "devel/python"
 LICENSE = "AGPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=73f1eb20517c55bf9493b7dd6e480788"
 
-SRCREV = "81471df419205980a133b3fb7e5b9ce25c4eaa63"
+SRCREV = "7b773f6fd21d407b325ce5f507bec24b945b9e21"
 
-PV = "1.3.8+git${SRCPV}"
+PV = "1.4.0rc+git${SRCPV}"
 
 PATCHTOOL = "git"
-SRC_URI = "git://github.com/foosel/OctoPrint.git;protocol=https;branch=maintenance \ 
-           file://0001-timelapse-add-setting-for-videocodec.patch \
-           file://0002-timelapse-change-videocodecs-to-predefined-list.patch \
-           file://0003-timelapse-pick-container-and-suffix-based-on-setting.patch \
+SRC_URI = "git://github.com/foosel/OctoPrint.git;protocol=https;branch=devel \ 
            file://config.yaml \
            file://octoprint.service \
            file://octoprint \
@@ -78,7 +75,7 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   python-flask \
                   python-flask-assets \
                   python-flask-babel \
-                  python-flask-login2 \
+                  python-flask-login \
                   python-flask-principal \
                   python-frozendict \
                   python-html \
@@ -96,7 +93,7 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   python-psutil \
                   python-pylru \
                   python-pyserial \
-                  python-pyyaml310 \
+                  python-pyyaml \
                   python-requests \
                   python-rsa \
                   python-sarge \
@@ -106,8 +103,8 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   python-sphinxcontrib-httpdomain \
                   python-tornado45 \
                   python-watchdog \
-                  python-werkzeug08 \
-                  python-click62 \
+                  python-werkzeug11 \
+                  python-click \
                   python-chainmap \
                   python-future15 \
                   python-scandir \

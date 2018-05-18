@@ -25,6 +25,8 @@ RDEPENDS_${PN} += "${PYTHON_PN}-io ${PYTHON_PN}-pickle ${PYTHON_PN}-crypt \
     ${PYTHON_PN}-math ${PYTHON_PN}-netclient ${PYTHON_PN}-re ${PYTHON_PN}-textutils \
     ${PYTHON_PN}-lang ${PYTHON_PN}-pprint ${PYTHON_PN}-shell ${PYTHON_PN}-markupsafe \
     ${PYTHON_PN}-json ${PYTHON_PN}-threading ${PYTHON_PN}-numbers"
+RCONFLICTS_${PN} += "python-jinja2"
+RPROVIDES_${PN} += "python-jinja2"
 
 CLEANBROKEN = "1"
 BBCLASSEXTEND = "native"

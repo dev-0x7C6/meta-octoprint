@@ -6,13 +6,12 @@ HOMEPAGE = "https://pypi.python.org/pypi/webassets/"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=01c7e9175fd063ebb0a6304af80e9874"
 
-SRC_URI = "https://pypi.python.org/packages/source/w/webassets/webassets-${PV}.tar.gz \
-           file://f11f7d300a539caead81fc28b01f760e6c3c9409.patch \
+SRC_URI = "git://github.com/miracle2k/webassets.git;proctol=https \
           "
-SRC_URI[md5sum] = "8007980e0ef38c9a42f577b2b2362e76"
-SRC_URI[sha256sum] = "2c59f2ddc0abe29afdc91bb535faf6ce3145a1aaf2c1cd8fefdb0296d8e6c9e2"
+SRCREV = "dfb5e70eff80aae2fa377d48a00f3d92559a6098"
+PV = "0.12.1+git${SRCPV}"
 
-S = "${WORKDIR}/webassets-${PV}"
+S = "${WORKDIR}/git"
 
 inherit setuptools
 

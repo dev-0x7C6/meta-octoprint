@@ -69,6 +69,7 @@ pkg_postinst_${PN}_append () {
 }
 
 RDEPENDS_${PN} = "python-awesome-slugify \
+                  python-backports-abc \
                   python-backports-ssl \
                   python-blinker \
                   python-feedparser \
@@ -98,6 +99,7 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   python-rsa \
                   python-sarge \
                   python-semantic-version \
+                  python-singledispatch \
                   python-sockjs-tornado45 \
                   python-sphinx-rtd-theme \
                   python-sphinxcontrib-httpdomain \

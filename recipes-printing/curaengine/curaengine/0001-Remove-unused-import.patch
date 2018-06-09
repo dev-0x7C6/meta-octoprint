@@ -1,0 +1,27 @@
+From 223e684239bb03236af28c98f958e97bb9ff58ee Mon Sep 17 00:00:00 2001
+From: Ghostkeeper <rubend@tutanota.com>
+Date: Tue, 29 Aug 2017 10:50:27 +0200
+Subject: [PATCH] Remove unused import
+
+This is only for debugging purposes, so it shouldn't have been included in the source code.
+
+Fixes #585.
+---
+ src/main.cpp | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/src/main.cpp b/src/main.cpp
+index d1d9319..e972d73 100644
+--- a/src/main.cpp
++++ b/src/main.cpp
+@@ -5,7 +5,6 @@
+ #include <sys/time.h>
+ #include <signal.h>
+ #if defined(__linux__) || (defined(__APPLE__) && defined(__MACH__))
+-#include <execinfo.h>
+ #include <sys/resource.h>
+ #endif
+ #include <stddef.h>
+-- 
+2.9.5
+

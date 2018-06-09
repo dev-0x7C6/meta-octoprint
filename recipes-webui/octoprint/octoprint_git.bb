@@ -6,12 +6,13 @@ SECTION = "devel/python"
 LICENSE = "AGPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=73f1eb20517c55bf9493b7dd6e480788"
 
-SRCREV = "7b773f6fd21d407b325ce5f507bec24b945b9e21"
+SRCREV = "f8e6e4e3dbe929bdab8127e9baef3bacab0361f1"
 
 PV = "1.4.0rc+git${SRCPV}"
 
 PATCHTOOL = "git"
 SRC_URI = "git://github.com/foosel/OctoPrint.git;protocol=https;branch=devel \ 
+           file://0001-setup.py-relax-monotonic-and-dateutil-requirements.patch \
            file://config.yaml \
            file://octoprint.service \
            file://octoprint \

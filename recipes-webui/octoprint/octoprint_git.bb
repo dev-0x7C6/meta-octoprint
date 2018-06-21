@@ -6,7 +6,7 @@ SECTION = "devel/python"
 LICENSE = "AGPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=73f1eb20517c55bf9493b7dd6e480788"
 
-SRCREV = "f8e6e4e3dbe929bdab8127e9baef3bacab0361f1"
+SRCREV = "e58387b4f2df0c02776a8d2f08265fa9ab84ba1f"
 
 PV = "1.4.0rc+git${SRCPV}"
 
@@ -70,6 +70,7 @@ pkg_postinst_${PN}_append () {
 }
 
 RDEPENDS_${PN} = "python-awesome-slugify \
+                  python-backports-abc \
                   python-backports-ssl \
                   python-blinker \
                   python-feedparser \
@@ -99,6 +100,7 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   python-rsa \
                   python-sarge \
                   python-semantic-version \
+                  python-singledispatch \
                   python-sockjs-tornado45 \
                   python-sphinx-rtd-theme \
                   python-sphinxcontrib-httpdomain \

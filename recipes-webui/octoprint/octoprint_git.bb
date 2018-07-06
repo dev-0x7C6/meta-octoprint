@@ -6,7 +6,7 @@ SECTION = "devel/python"
 LICENSE = "AGPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=73f1eb20517c55bf9493b7dd6e480788"
 
-SRCREV = "e58387b4f2df0c02776a8d2f08265fa9ab84ba1f"
+SRCREV = "88a962b3ab1e0b162dade8239ef51f1e19ca9229"
 
 PV = "1.4.0rc+git${SRCPV}"
 

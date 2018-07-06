@@ -1,4 +1,4 @@
-From 18e4afe0874e9177c54bfdb9496e56c24676392c Mon Sep 17 00:00:00 2001
+From dbf413b6dcd1d79ad3957012b7512a84dd53ce67 Mon Sep 17 00:00:00 2001
 From: Koen Kooi <koen.kooi@linaro.org>
 Date: Sat, 9 Jun 2018 12:55:04 +0200
 Subject: [PATCH] setup.py: relax monotonic and dateutil requirements
@@ -9,16 +9,16 @@ Signed-off-by: Koen Kooi <koen.kooi@linaro.org>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/setup.py b/setup.py
-index a46e920..d28fdbd 100644
+index 08ddb4b..70a0573 100644
 --- a/setup.py
 +++ b/setup.py
 @@ -47,11 +47,11 @@ INSTALL_REQUIRES = [
- 	"future>=0.15,<0.16",
+ 	"future>=0.15.2,<0.16",
  	"scandir>=1.3,<1.4",
- 	"websocket-client>=0.40,<0.41",
--	"python-dateutil>=2.6,<2.7",
+ 	"websocket-client>=0.40.0,<0.41",
+-	"python-dateutil>=2.6.1,<2.7",
 +	"python-dateutil>=2.6,<2.8",
- 	"wrapt>=1.10.10,<1.11",
+ 	"wrapt>=1.10.11,<1.11",
  	"futures>=3.1.1,<3.2",
  	"emoji>=0.4.5,<0.5",
 -	"monotonic>=1.3,<1.4",

@@ -19,7 +19,7 @@ export HOST_SYS
 export STAGING_INCDIR
 export STAGING_LIBDIR
 
-RCONFLICTS_${PN} += "python-werkzeug python-werkzeug08"
-RPROVIDES_${PN} += "python-werkzeug"
+RCONFLICTS_${PN} += "python-werkzeug python-werkzeug08 python-werkzeug-tests"
+RPROVIDES_${PN} += "python-werkzeug python-werkzeug-tests"
 
 BBCLASSEXTEND = "native"

@@ -8,6 +8,7 @@ SRCREV = "f387bb44e6c087271b763b27da998bf2e06c4f5d"
 SRC_URI = "git://github.com/jacksonliam/mjpg-streamer.git;protocol=https \
            file://0001-slightly-unbreak-raspi-cmake.patch;striplevel=2 \
            file://d0dcc2e0bbe84ef0937def2d7d226eee88150739.patch \
+           file://6970dcfb886477683558fd6caaefa990f7fbed75.patch \
           "
 
 PATCHTOOL = "git"

@@ -4,7 +4,7 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=751419260aa954499f7abaabaa882bbe"
 
 PV = "0.4+git${SRCPV}"
-SRCREV = "8cc9d22c1e79905d529a248ccf05bbf0625e0bf3"
+SRCREV = "f387bb44e6c087271b763b27da998bf2e06c4f5d"
 SRC_URI = "git://github.com/jacksonliam/mjpg-streamer.git;protocol=https \
            file://0001-slightly-unbreak-raspi-cmake.patch;striplevel=2 \
            file://d0dcc2e0bbe84ef0937def2d7d226eee88150739.patch \

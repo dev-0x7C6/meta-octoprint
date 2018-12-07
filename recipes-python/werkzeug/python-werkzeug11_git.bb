@@ -22,4 +22,5 @@ export STAGING_LIBDIR
 RCONFLICTS_${PN} += "python-werkzeug python-werkzeug08"
 RPROVIDES_${PN} += "python-werkzeug"
 
+CLEANBROKEN = "1"
 BBCLASSEXTEND = "native"

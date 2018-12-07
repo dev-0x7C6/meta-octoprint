@@ -8,17 +8,20 @@ HOMEPAGE = "http://click.pocoo.org/"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=09e8b7869f94ba9e9a7b260d53c65dab"
 
-SRC_URI[md5sum] = "83252a8095397b1f5f710fdd58b484d9"
-SRC_URI[sha256sum] = "fba0ff70f5ebb4cebbf64c40a8fbc222fb7cf825237241e548354dabe3da6a82"
 
 PYPI_PACKAGE = "click"
 
 CLEANBROKEN = "1"
 
+SRCREV = "43eb54db0bcde78dceaccfea9396ca21982003dd"
+SRC_URI = "git://github.com/pallets/click.git;protocol=https;branch=7.x"
+
+S = "${WORKDIR}/git"
+
+
 RDEPENDS_${PN} += "\
     ${PYTHON_PN}-io \
     ${PYTHON_PN}-threading \
     "
-RCONFLICTS_${PN} = "${PYTHON_PN}-click"
 
 BBCLASSEXTEND = "native nativesdk"

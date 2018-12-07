@@ -5,7 +5,6 @@ LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=482ee62da51806409d432a80eed4e3ea"
 
 
-SRC_URI = "git://github.com/benhoyt/scandir.git"
-SRCREV = "2cbe404037955a4c4b2af9fa0f8fa29abd418479"
+SRC_URI = "git://github.com/benhoyt/scandir.git;protocol=https"
 
 S = "${WORKDIR}/git"

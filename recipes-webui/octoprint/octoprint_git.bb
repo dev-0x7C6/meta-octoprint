@@ -6,13 +6,12 @@ SECTION = "devel/python"
 LICENSE = "AGPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=73f1eb20517c55bf9493b7dd6e480788"
 
-SRCREV = "7ab4b90d07acd659ccf575a518ed70da40641972"
+SRCREV = "3a1611e5c4d66442ba36275545ac5563962cb500"
 
 PV = "1.4.0rc+git${SRCPV}"
 
 PATCHTOOL = "git"
 SRC_URI = "git://github.com/foosel/OctoPrint.git;protocol=https;branch=devel \ 
-           file://0001-setup.py-relax-monotonic-and-dateutil-requirements.patch \
            file://config.yaml \
            file://octoprint.service \
            file://octoprint \
@@ -30,7 +29,12 @@ export STAGING_LIBDIR
 
 BBCLASSEXTEND = "native"
 
-do_install_append(){
+do_configure_prepend() {
+    # 'post0' only exist as tarball, no matching commit/version in the git repo :/
+    sed -i -e s:post0::g ${S}/setup.py
+}
+
+do_install_append() {
 
     sed -i -e s:/etc:${sysconfdir}:g ${WORKDIR}/octoprint.service
     sed -i -e s:/etc:${sysconfdir}:g ${WORKDIR}/config.yaml
@@ -95,7 +99,7 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   python-psutil \
                   python-pylru \
                   python-pyserial \
-                  python-pyyaml \
+                  python-pyyaml313 \
                   python-requests \
                   python-rsa \
                   python-sarge \
@@ -109,7 +113,7 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   python-werkzeug11 \
                   python-click \
                   python-chainmap \
-                  python-future15 \
+                  python-future \
                   python-scandir \
                   python-websocket-client \
                   python-dateutil \

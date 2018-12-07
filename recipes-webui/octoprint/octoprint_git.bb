@@ -111,6 +111,7 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   python-tornado45 \
                   python-watchdog \
                   python-werkzeug \
+                  python-werkzeug-tests \
                   python-click \
                   python-chainmap \
                   python-future \

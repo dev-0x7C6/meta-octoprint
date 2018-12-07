@@ -81,7 +81,7 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   python-flask \
                   python-flask-assets \
                   python-flask-babel \
-                  python-flask-login \
+                  python-flask-login2 \
                   python-flask-principal \
                   python-frozendict \
                   python-html \

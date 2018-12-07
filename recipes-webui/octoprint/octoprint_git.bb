@@ -81,7 +81,7 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   python-flask \
                   python-flask-assets \
                   python-flask-babel \
-                  python-flask-login \
+                  python-flask-login2 \
                   python-flask-principal \
                   python-frozendict \
                   python-html \
@@ -110,7 +110,7 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   python-sphinxcontrib-httpdomain \
                   python-tornado45 \
                   python-watchdog \
-                  python-werkzeug11 \
+                  python-werkzeug \
                   python-click \
                   python-chainmap \
                   python-future \

@@ -110,7 +110,7 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   python-sphinxcontrib-httpdomain \
                   python-tornado45 \
                   python-watchdog \
-                  python-werkzeug11 \
+                  python-werkzeug \
                   python-click \
                   python-chainmap \
                   python-future \

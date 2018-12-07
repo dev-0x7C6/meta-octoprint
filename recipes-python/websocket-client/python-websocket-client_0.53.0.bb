@@ -7,5 +7,6 @@ inherit pypi setuptools
 
 PYPI_PACKAGE = "websocket_client"
 
-SRC_URI[md5sum] = "f1cf4cc7869ef97a98e5f4be25c30986"
-SRC_URI[sha256sum] = "40ac14a0c54e14d22809a5c8d553de5a2ae45de3c60105fae53bcb281b3fe6fb"
+SRC_URI[md5sum] = "e1700953d5daef5706c527dbb4b5edef"
+SRC_URI[sha256sum] = "c42b71b68f9ef151433d6dcc6a7cb98ac72d2ad1e3a74981ca22bc5d9134f166"
+

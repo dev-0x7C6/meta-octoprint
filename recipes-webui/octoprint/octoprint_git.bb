@@ -6,12 +6,12 @@ SECTION = "devel/python"
 LICENSE = "AGPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=73f1eb20517c55bf9493b7dd6e480788"
 
-SRCREV = "3a1611e5c4d66442ba36275545ac5563962cb500"
+SRCREV = "c6b4eee437ce2e95f39b61ce859fc8097d17ed47"
 
 PV = "1.4.0rc+git${SRCPV}"
 
 PATCHTOOL = "git"
-SRC_URI = "git://github.com/foosel/OctoPrint.git;protocol=https;branch=devel \ 
+SRC_URI = "git://github.com/foosel/OctoPrint.git;protocol=https;branch=maintenance \ 
            file://config.yaml \
            file://octoprint.service \
            file://octoprint \
@@ -78,7 +78,7 @@ RDEPENDS_${PN} = "python-awesome-slugify \
                   python-backports-ssl \
                   python-blinker \
                   python-feedparser \
-                  python-flask \
+                  python-flask10 \
                   python-flask-assets \
                   python-flask-babel \
                   python-flask-login2 \

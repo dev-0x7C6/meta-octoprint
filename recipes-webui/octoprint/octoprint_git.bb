@@ -6,12 +6,13 @@ SECTION = "devel/python"
 LICENSE = "AGPL-3.0"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=73f1eb20517c55bf9493b7dd6e480788"
 
-SRCREV = "7b773f6fd21d407b325ce5f507bec24b945b9e21"
+TAG = "1.5.3"
 
-PV = "1.4.0rc+git${SRCPV}"
+SRCREV = "${TAG}"
+PV = "${TAG}+git${SRCPV}"
 
 PATCHTOOL = "git"
-SRC_URI = "git://github.com/foosel/OctoPrint.git;protocol=https;branch=devel \ 
+SRC_URI = "git://github.com/foosel/OctoPrint.git;protocol=https;nobranch=1 \
            file://config.yaml \
            file://octoprint.service \
            file://octoprint \
@@ -19,8 +20,7 @@ SRC_URI = "git://github.com/foosel/OctoPrint.git;protocol=https;branch=devel \
 "
 S = "${WORKDIR}/git"
 
-inherit setuptools systemd useradd
-
+inherit python3-dir python3native setuptools3 systemd useradd
 
 export BUILD_SYS
 export HOST_SYS
@@ -68,54 +68,66 @@ pkg_postinst_${PN}_append () {
         chown -R octoprint $D${sysconfdir}/octoprint
 }
 
-RDEPENDS_${PN} = "python-awesome-slugify \
-                  python-backports-ssl \
-                  python-blinker \
-                  python-feedparser \
-                  python-flask \
-                  python-flask-assets \
-                  python-flask-babel \
-                  python-flask-login \
-                  python-flask-principal \
-                  python-frozendict \
-                  python-html \
-                  python-itsdangerous \
-                  python-jinja2.8 \
-                  python-json \
-                  python-markdown \
-                  python-netaddr \
-                  python-netifaces \
-                  python-netserver \
-                  python-numpy \
-                  python-pathtools \
-                  python-pip \
-                  python-pkginfo \
-                  python-psutil \
-                  python-pylru \
-                  python-pyserial \
-                  python-pyyaml \
-                  python-requests \
-                  python-rsa \
-                  python-sarge \
-                  python-semantic-version \
-                  python-sockjs-tornado45 \
-                  python-sphinx-rtd-theme \
-                  python-sphinxcontrib-httpdomain \
-                  python-tornado45 \
-                  python-watchdog \
-                  python-werkzeug11 \
-                  python-click \
-                  python-chainmap \
-                  python-future15 \
-                  python-scandir \
-                  python-websocket-client \
-                  python-dateutil \
-                  python-wrapt \
-                  python-futures \
-                  python-emoji \
-                  python-monotonic \
-                  sudo \
-                  curaengine \ 
+# TODO: Missing or no more needed ?
+#
+# python3-awesome-slugify
+# python3-backports-ssl
+# python3-emoji
+# python3-frozendict
+# python3-pathtools
+# python3-pkginfo
+# python3-semantic-version
+# python3-sockjs-tornado45
+# python3-feedparser
+# python3-pylru
+# python3-sphinx-rtd-theme
+# python3-flask-assets
+# python3-flask-principal
+# python3-werkzeug11
+# python3-sphinxcontrib-httpdomain
+# python3-scandir
+# python3-chainmap
+# python3-sarge
+
+PYTHON_DEPS = " \
+    python3-blinker \
+    python3-click \
+    python3-dateutil \
+    python3-flask \
+    python3-flask-babel \
+    python3-flask-login \
+    python3-future \
+    python3-html \
+    python3-itsdangerous \
+    python3-jinja2 \
+    python3-json \
+    python3-markdown \
+    python3-monotonic \
+    python3-netaddr \
+    python3-netifaces \
+    python3-netserver \
+    python3-numpy \
+    python3-pip \
+    python3-psutil \
+    python3-pyserial \
+    python3-pyyaml \
+    python3-requests \
+    python3-rsa \
+    python3-tornado \
+    python3-watchdog \
+    python3-websocket-client \
+    python3-wrapt \
+"
+
+DEPENDS += " \
+    python3-pip-native \
+    python3-markdown-native \
+"
+
+RDEPENDS_${PN} = " \
+    ${PYTHON_DEPS} \
+    curaengine \
+    sudo \
 "
 
 RRECOMMENDS_${PN} = "ffmpeg \

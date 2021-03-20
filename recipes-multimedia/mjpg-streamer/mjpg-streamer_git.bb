@@ -10,6 +10,9 @@ SRCREV = "v${TAG}"
 
 SRC_URI = "git://github.com/jacksonliam/mjpg-streamer.git;protocol=https;nobranch=1"
 
+# Workaround multiple defined symbols
+TARGET_CFLAGS += "-fcommon"
+
 DEPENDS = "libgphoto2 v4l-utils"
 
 # Add support for raspicam on rpi platforms

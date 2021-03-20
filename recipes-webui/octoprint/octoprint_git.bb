@@ -29,8 +29,7 @@ export STAGING_LIBDIR
 
 BBCLASSEXTEND = "native"
 
-do_install_append(){
-
+do_install_append() {
     sed -i -e s:/etc:${sysconfdir}:g ${WORKDIR}/octoprint.service
     sed -i -e s:/etc:${sysconfdir}:g ${WORKDIR}/config.yaml
     sed -i -e 's: /sbin: ${base_sbindir}:g' ${WORKDIR}/octoprint
@@ -47,7 +46,7 @@ do_install_append(){
     install -d ${D}${localstatedir}/lib/octoprint
     chmod a+rw ${D}${localstatedir}/lib/octoprint
 
-    install -d ${D}${sysconfdir}/sudoers.d
+    install -d -m 0750 ${D}${sysconfdir}/sudoers.d
     install -m 0644 ${WORKDIR}/octoprint ${D}${sysconfdir}/sudoers.d/
 
     install -d ${D}${bindir}

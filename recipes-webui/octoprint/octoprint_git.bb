@@ -69,12 +69,10 @@ pkg_postinst_${PN}_append () {
 # python3-pkginfo
 # python3-semantic-version
 # python3-sockjs-tornado45
-# python3-feedparser
 # python3-sphinx-rtd-theme
 # python3-flask-principal
 # python3-werkzeug11
 # python3-sphinxcontrib-httpdomain
-# python3-scandir
 # python3-chainmap
 
 PYTHON_DEPS = " \
@@ -111,6 +109,7 @@ PYTHON_DEPS = " \
     python3-watchdog \
     python3-websocket-client \
     python3-wrapt \
+    python3-zeroconf \
 "
 
 DEPENDS += " \

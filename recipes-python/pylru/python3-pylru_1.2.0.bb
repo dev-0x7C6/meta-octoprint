@@ -12,4 +12,4 @@ SRC_URI[sha256sum] = "492f934bb98dc6c8b2370c02c95c65516ddc08c8f64d27f70087eb0386
 
 S = "${WORKDIR}/pylru-${PV}"
 
-inherit setuptools3 native
+inherit setuptools3

@@ -72,35 +72,35 @@ pkg_postinst_${PN}_append () {
 # python3-awesome-slugify
 # python3-backports-ssl
 # python3-emoji
-# python3-frozendict
 # python3-pathtools
 # python3-pkginfo
 # python3-semantic-version
 # python3-sockjs-tornado45
 # python3-feedparser
-# python3-pylru
 # python3-sphinx-rtd-theme
-# python3-flask-assets
 # python3-flask-principal
 # python3-werkzeug11
 # python3-sphinxcontrib-httpdomain
 # python3-scandir
 # python3-chainmap
-# python3-sarge
 
 PYTHON_DEPS = " \
     python3-blinker \
     python3-click \
     python3-dateutil \
+    python3-feedparser \
     python3-flask \
+    python3-flask-assets \
     python3-flask-babel \
     python3-flask-login \
+    python3-frozendict \
     python3-future \
     python3-html \
     python3-itsdangerous \
     python3-jinja2 \
     python3-json \
     python3-markdown \
+    python3-markupsafe \
     python3-monotonic \
     python3-netaddr \
     python3-netifaces \
@@ -108,10 +108,12 @@ PYTHON_DEPS = " \
     python3-numpy \
     python3-pip \
     python3-psutil \
+    python3-pylru \
     python3-pyserial \
     python3-pyyaml \
     python3-requests \
     python3-rsa \
+    python3-sarge \
     python3-tornado \
     python3-watchdog \
     python3-websocket-client \

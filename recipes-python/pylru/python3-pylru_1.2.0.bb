@@ -7,8 +7,8 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 SRC_URI = "https://pypi.python.org/packages/source/p/pylru/pylru-${PV}.tar.gz"
-SRC_URI[md5sum] = "41369d58a1c4391c5cc36f84262abcdc"
-SRC_URI[sha256sum] = "71376192671f0ad1690b2a7427d39a29b1df994c8469a9b46b03ed7e28c0172c"
+SRC_URI[md5sum] = "8f0050f86d1fa68bb18673de37da543b"
+SRC_URI[sha256sum] = "492f934bb98dc6c8b2370c02c95c65516ddc08c8f64d27f70087eb038621d297"
 
 S = "${WORKDIR}/pylru-${PV}"
 

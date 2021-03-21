@@ -22,13 +22,6 @@ S = "${WORKDIR}/git"
 
 inherit python3-dir python3native setuptools3 systemd useradd
 
-export BUILD_SYS
-export HOST_SYS
-export STAGING_INCDIR
-export STAGING_LIBDIR
-
-BBCLASSEXTEND = "native"
-
 do_install_append() {
     sed -i -e s:/etc:${sysconfdir}:g ${WORKDIR}/octoprint.service
     sed -i -e s:/etc:${sysconfdir}:g ${WORKDIR}/config.yaml

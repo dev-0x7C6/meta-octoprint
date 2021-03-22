@@ -60,18 +60,14 @@ pkg_postinst_${PN}_append () {
         chown -R octoprint $D${sysconfdir}/octoprint
 }
 
-# TODO: Missing or no more needed ?
-#
-# python3-awesome-slugify
-# python3-backports-ssl
-# python3-sockjs-tornado45
-
 PYTHON_DEPS = " \
     python3-blinker \
+    python3-cachelib \
     python3-click \
     python3-dateutil \
     python3-emoji \
     python3-feedparser \
+    python3-filetype \
     python3-flask \
     python3-flask-assets \
     python3-flask-babel \
@@ -101,7 +97,10 @@ PYTHON_DEPS = " \
     python3-requests \
     python3-rsa \
     python3-sarge \
+    python3-semantic-version \
+    python3-sentry-sdk \
     python3-tornado \
+    python3-unidecode \
     python3-watchdog \
     python3-websocket-client \
     python3-werkzeug \

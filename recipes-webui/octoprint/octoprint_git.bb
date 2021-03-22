@@ -22,6 +22,13 @@ S = "${WORKDIR}/git"
 
 inherit python3-dir python3native setuptools3 systemd useradd
 
+do_patch() {
+    sed -i -e "s/markdown>=3.1,<3.2/markdown>=3.1/g" ${S}/setup.py
+    sed -i -e "s/markupsafe>=1.1,<2.0/markupsafe>=1.1/g" ${S}/setup.py
+    sed -i -e "s/rsa==4.0/rsa>=4.0/g" ${S}/setup.py
+    sed -i -e "s/tornado==/tornado>=/g" ${S}/setup.py
+}
+
 do_install_append() {
     sed -i -e s:/etc:${sysconfdir}:g ${WORKDIR}/octoprint.service
     sed -i -e s:/etc:${sysconfdir}:g ${WORKDIR}/config.yaml
@@ -87,6 +94,8 @@ PYTHON_DEPS = " \
     python3-netifaces \
     python3-netserver \
     python3-numpy \
+    python3-octoprint-filecheck \
+    python3-octoprint-firmwarecheck \
     python3-pip \
     python3-pkginfo \
     python3-psutil \

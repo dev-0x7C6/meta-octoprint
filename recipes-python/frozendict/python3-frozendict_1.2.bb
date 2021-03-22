@@ -1,14 +1,7 @@
-SUMMARY = "python-frozendict recipe"
+SUMMARY = "Frozendict is an immutable wrapper around dictionaries."
 
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://${S}/LICENSE.txt;md5=f4da037a49c09b456fdbbc7a5bd36132"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=f4da037a49c09b456fdbbc7a5bd36132"
+SRC_URI[sha256sum] = "774179f22db2ef8a106e9c38d4d1f8503864603db08de2e33be5b778230f6e45"
 
-SRCREV = "c5d16bafcca7b72ff3e8f40d3a9081e4c9233f1b"
-PV = "1.2+git${SRCPV}"
-
-SRC_URI = "git://github.com/slezica/python-frozendict.git"
-
-S = "${WORKDIR}/git"
-
-inherit setuptools3
-
+inherit pypi setuptools3

@@ -9,4 +9,4 @@ SRC_URI[sha256sum] = "1dfdea35e40744d46aada72831f7613d67bf38e8b20ccaaa9e91fdc37a
 
 inherit pypi setuptools3
 
-RDEPENDS_${PN} = "python3-webassets"
+RDEPENDS:${PN} = "python3-webassets"

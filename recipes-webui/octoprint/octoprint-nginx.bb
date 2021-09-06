@@ -20,9 +20,9 @@ do_install() {
     install -m 0644 ${WORKDIR}/nginx.conf ${D}${sysconfdir}/nginx/nginx.conf.octoprint	
 }
 
-pkg_postinst_${PN} () {
+pkg_postinst:${PN} () {
     mv $D${sysconfdir}/nginx/nginx.conf $D${sysconfdir}/nginx/nginx.conf.pre-octoprint
     cp $D${sysconfdir}/nginx/nginx.conf.octoprint $D${sysconfdir}/nginx/nginx.conf
 }
 
-RDEPENDS_${PN} = "octoprint mjpg-streamer nginx"
+RDEPENDS:${PN} = "octoprint mjpg-streamer nginx"

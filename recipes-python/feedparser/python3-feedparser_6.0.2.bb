@@ -7,7 +7,7 @@ SRC_URI[sha256sum] = "1b00a105425f492f3954fd346e5b524ca9cef3a4bbf95b8809470e9857
 
 inherit pypi setuptools3
 
-RDEPENDS_${PN} += " \
+RDEPENDS:${PN} += " \
     ${PYTHON_PN}-codecs \
     ${PYTHON_PN}-email \
     ${PYTHON_PN}-html \

@@ -9,7 +9,7 @@ SRC_URI[sha256sum] = "d6a70468f9a8919d59fba2a291a003da3a05ff884275dddbd965f3b98b
 
 inherit pypi setuptools3
 
-RDEPENDS_${PN} += "\
+RDEPENDS:${PN} += "\
     ${PYTHON_PN}-babel \
     ${PYTHON_PN}-flask \
     ${PYTHON_PN}-speaklater \

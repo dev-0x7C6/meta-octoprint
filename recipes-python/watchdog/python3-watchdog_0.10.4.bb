@@ -7,4 +7,4 @@ SRC_URI[sha256sum] = "e38bffc89b15bafe2a131f0e1c74924cf07dcec020c2e0a26cccd20883
 
 inherit pypi setuptools3
 
-RDEPENDS_${PN} += "${PYTHON_PN}-pathtools"
+RDEPENDS:${PN} += "${PYTHON_PN}-pathtools"

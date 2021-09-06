@@ -29,7 +29,7 @@ do_patch() {
     sed -i -e "s/tornado==/tornado>=/g" ${S}/setup.py
 }
 
-do_install_append() {
+do_install:append() {
     sed -i -e s:/etc:${sysconfdir}:g ${WORKDIR}/octoprint.service
     sed -i -e s:/etc:${sysconfdir}:g ${WORKDIR}/config.yaml
     sed -i -e 's: /sbin: ${base_sbindir}:g' ${WORKDIR}/octoprint
@@ -54,16 +54,16 @@ do_install_append() {
 }
 
 USERADD_PACKAGES = "${PN}"
-USERADD_PARAM_${PN} = "--system --home ${localstatedir}/lib/octoprint/ -M -g nogroup -G dialout octoprint"
+USERADD_PARAM:${PN} = "--system --home ${localstatedir}/lib/octoprint/ -M -g nogroup -G dialout octoprint"
 
 NATIVE_SYSTEMD_SUPPORT = "1"
 SYSTEMD_PACKAGES = "${PN}"
-SYSTEMD_SERVICE_${PN} = "octoprint.service"
+SYSTEMD_SERVICE:${PN} = "octoprint.service"
 
-FILES_${PN} += "${sysconfdir} ${localstatedir}"
-CONFFILES_${PN} += "${sysconfdir}/octoprint/config.yaml"
+FILES:${PN} += "${sysconfdir} ${localstatedir}"
+CONFFILES:${PN} += "${sysconfdir}/octoprint/config.yaml"
 
-pkg_postinst_${PN}_append () {
+pkg_postinst:${PN}:append () {
         chown -R octoprint $D${sysconfdir}/octoprint
 }
 
@@ -122,13 +122,12 @@ DEPENDS += " \
     python3-markdown-native \
 "
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} = " \
     ${PYTHON_DEPS} \
-    curaengine \
     sudo \
 "
 
-RRECOMMENDS_${PN} = "ffmpeg \
+RRECOMMENDS:${PN} = "ffmpeg \
                      mjpg-streamer \
                      octoprint-nginx \
                     "
